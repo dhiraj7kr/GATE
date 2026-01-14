@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Electronics | GATE Free Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #2a9d8f);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-bolt"></i> Digital Electronics</h1>
+            <p class="subtitle">GATE Free Crash Course for ECE, EE, CSE & IT covering Logic Gates, K-Maps, Combinational & Sequential Circuits, Counters, and more</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for digital electronics topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="gates">Logic Gates</button>
+            <button class="category-btn" data-category="kmap">K-Maps</button>
+            <button class="category-btn" data-category="combinational">Combinational Circuits</button>
+            <button class="category-btn" data-category="sequential">Sequential Circuits</button>
+            <button class="category-btn" data-category="counters">Counters</button>
+            <button class="category-btn" data-category="numbers">Number Systems</button>
+            <button class="category-btn" data-category="conversion">ADC/DAC</button>
+            <button class="category-btn" data-category="practice">Practice Questions</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/FgVdnXotCkI" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Digital Electronics 01 | LOGIC GATE- NOT, AND, OR, NAND</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Logic Gates</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to basic logic gates - NOT, AND, OR, NAND gates, their truth tables, symbols, and Boolean expressions.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Digital Electronics | GATE Free Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 1, title: "Digital Electronics 01 | LOGIC GATE- NOT, AND, OR, NAND", category: "gates", youtubeId: "FgVdnXotCkI", description: "Introduction to basic logic gates - NOT, AND, OR, NAND gates, their truth tables, symbols, and Boolean expressions.", watched: false },
+            { id: 2, title: "Digital Electronics 02 | LOGIC GATE - NOR, XOR, XNOR GATE", category: "gates", youtubeId: "ICHCZYB6KIA", description: "Understanding NOR, XOR, and XNOR gates, their properties, truth tables, and applications in digital circuits.", watched: false },
+            { id: 3, title: "Digital Electronics 03 | Complete K-Map in 2.5 Hrs", category: "kmap", youtubeId: "8Ze5dmQDi90", description: "Comprehensive coverage of Karnaugh Maps (K-Maps), simplification of Boolean expressions, and solving complex problems.", watched: false },
+            { id: 4, title: "Digital Electronics 04 | Combinational Circuit- Multiplexer", category: "combinational", youtubeId: "sPjkrvAD3W0", description: "Understanding multiplexers, their working principle, implementation, and applications in digital systems.", watched: false },
+            { id: 5, title: "Digital Electronics 05 | Combinational Circuit", category: "combinational", youtubeId: "CSqNVEsKgaE", description: "Introduction to combinational circuits, their design principles, and implementation of various logic functions.", watched: false },
+            { id: 6, title: "Digital Electronics 06 | Combinational Circuit- Parallel Adder", category: "combinational", youtubeId: "VXE7GG8r7h0", description: "Understanding parallel adders, half adders, full adders, and their implementation in digital arithmetic circuits.", watched: false },
+            { id: 7, title: "Digital Electronics 07 | Sequential Circuit - Latches, SR Flip Flop", category: "sequential", youtubeId: "A-2_HzsPwHA", description: "Introduction to sequential circuits, latches, SR flip-flops, and their working principles in digital systems.", watched: false },
+            { id: 8, title: "Digital Electronics 08 | Sequential Circuit - D, T Flip Flop and Designing Of Flip Flops", category: "sequential", youtubeId: "teKXGaYCzZM", description: "Understanding D and T flip-flops, their characteristics, and designing flip-flops for various applications.", watched: false },
+            { id: 9, title: "Digital Electronics 09 | Asynchronous Counter", category: "counters", youtubeId: "kmBzDukmMcU", description: "Introduction to asynchronous counters, their working principle, design, and applications in digital systems.", watched: false },
+            { id: 10, title: "Digital Electronics 10 | Complete Synchronous Counter in 2 Hour", category: "counters", youtubeId: "T5X89yi16YI", description: "Comprehensive coverage of synchronous counters, their design, working, and applications in sequential circuits.", watched: false },
+            { id: 11, title: "Digital Electronics 11 | Number System", category: "numbers", youtubeId: "Kx6iC4I9hc4", description: "Understanding number systems - binary, octal, hexadecimal, and their conversions in digital electronics.", watched: false },
+            { id: 12, title: "Digital Electronics 12 | Complete Digital Electronics in 2 Hours", category: "practice", youtubeId: "5y-HLE-gnpQ", description: "Comprehensive revision of complete digital electronics syllabus with important concepts and problem-solving techniques.", watched: false },
+            { id: 13, title: "Digital Electronics 13 | ADC & DAC", category: "conversion", youtubeId: "dJxLxlm_chI", description: "Understanding Analog to Digital Converters (ADC) and Digital to Analog Converters (DAC) and their working principles.", watched: false },
+            { id: 14, title: "Digital Electronics 14 | DAC & CMOS Implementation of Logics", category: "conversion", youtubeId: "blMARNqIvKk", description: "Detailed study of DAC implementation and CMOS technology for logic gate implementation in digital circuits.", watched: false },
+            { id: 15, title: "Digital Electronics 15 | 51 Most Expected Questions of Digital Electronics - 1", category: "practice", youtubeId: "XnFdWGWGCqE", description: "Solving 51 most expected questions in digital electronics for GATE examination - Part 1.", watched: false },
+            { id: 16, title: "Digital Electronics 16 | 51 Most Expected Questions of Digital Electronics Part 2", category: "practice", youtubeId: "oOxS7FLrhbo", description: "Solving 51 most expected questions in digital electronics for GATE examination - Part 2.", watched: false },
+            { id: 17, title: "Digital Electronics 17 | Delay and State Machine", category: "sequential", youtubeId: "Y36GH-9LHs0", description: "Understanding propagation delay in digital circuits and introduction to state machines in sequential logic design.", watched: false }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

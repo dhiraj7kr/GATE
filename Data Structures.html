@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures | GATE 2026 Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1abc9c, #16a085, #2c3e50);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-database"></i> Data Structures</h1>
+            <p class="subtitle">GATE 2026 Crash Course covering Arrays, Linked Lists, Stacks, Queues, Trees, and Hashing with practical implementations</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for data structures topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="intro">Introduction</button>
+            <button class="category-btn" data-category="arrays">Arrays</button>
+            <button class="category-btn" data-category="linked">Linked Lists</button>
+            <button class="category-btn" data-category="stack">Stacks & Queues</button>
+            <button class="category-btn" data-category="trees">Trees</button>
+            <button class="category-btn" data-category="hashing">Hashing</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/GicSPlosq-I" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Data Structures 01 | Introduction to Data Structures</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Introduction</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to data structures, their importance, classification, and overview of the course content for GATE 2026 preparation.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Data Structures | GATE 2026 Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            {
+                id: 1,
+                title: "Data Structures 01 | Introduction to Data Structures",
+                category: "intro",
+                youtubeId: "GicSPlosq-I",
+                description: "Introduction to data structures, their importance, classification, and overview of the course content for GATE 2026 preparation.",
+                watched: false
+            },
+            {
+                id: 2,
+                title: "Data Structures 02 | Arrays Part 01",
+                category: "arrays",
+                youtubeId: "55W7AOLL3-U",
+                description: "Fundamentals of arrays, declaration, initialization, basic operations, and time complexity analysis.",
+                watched: false
+            },
+            {
+                id: 3,
+                title: "Data Structures 03 | Arrays Part 02",
+                category: "arrays",
+                youtubeId: "HDolI680pr8",
+                description: "Advanced array operations, multidimensional arrays, dynamic arrays, and memory management concepts.",
+                watched: false
+            },
+            {
+                id: 4,
+                title: "Data Structures 04 | Linked List Part 01",
+                category: "linked",
+                youtubeId: "v7emeyxACjE",
+                description: "Introduction to linked lists, singly linked list implementation, traversal, insertion and deletion operations.",
+                watched: false
+            },
+            {
+                id: 5,
+                title: "Data Structures 05 | Linked List Part 02",
+                category: "linked",
+                youtubeId: "iU-WT3DPSf4",
+                description: "Advanced linked list concepts including circular linked lists, doubly linked lists, and complex operations.",
+                watched: false
+            },
+            {
+                id: 6,
+                title: "Data Structures 06 | Stack and Queue Part 1",
+                category: "stack",
+                youtubeId: "VnZPAS0Cfas",
+                description: "Fundamentals of stack and queue data structures, operations, array and linked list implementations.",
+                watched: false
+            },
+            {
+                id: 7,
+                title: "Data Structures 07 | Stack and Queue Part 2",
+                category: "stack",
+                youtubeId: "3STggS0LVTQ",
+                description: "Advanced stack and queue implementations, circular queues, priority queues, and real-world applications.",
+                watched: false
+            },
+            {
+                id: 8,
+                title: "Data Structures 08 | Trees Part 01",
+                category: "trees",
+                youtubeId: "jFbpavkuF6A",
+                description: "Introduction to tree data structure, terminology, binary trees, and basic tree operations and properties.",
+                watched: false
+            },
+            {
+                id: 9,
+                title: "Data Structures 09 | Trees Part 02",
+                category: "trees",
+                youtubeId: "bj3Z5SPF70I",
+                description: "Binary search trees, tree traversal algorithms (inorder, preorder, postorder), and tree operations implementation.",
+                watched: false
+            },
+            {
+                id: 10,
+                title: "Data Structures 10 | Trees Part 03",
+                category: "trees",
+                youtubeId: "LYek8Rhl-o0",
+                description: "Advanced tree concepts including AVL trees, rotations, and balancing operations for efficient data storage and retrieval.",
+                watched: false
+            },
+            {
+                id: 11,
+                title: "Data Structures 11 | Hashing in Data Structure Explained",
+                category: "hashing",
+                youtubeId: "rn-Yo162kjU",
+                description: "Comprehensive explanation of hashing techniques, hash functions, collision resolution methods, and applications in data structures.",
+                watched: false
+            }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

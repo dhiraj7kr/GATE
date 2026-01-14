@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management System | GATE 2024 Series</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #3f51b5, #303f9f, #5c6bc0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-table"></i> Database Management System</h1>
+            <p class="subtitle">GATE 2024 Series covering Keys, Normalization, Transactions, Concurrency, SQL, ER Model, and File Organization</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for DBMS topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="intro">Introduction</button>
+            <button class="category-btn" data-category="keys">Keys & FDs</button>
+            <button class="category-btn" data-category="normalization">Normalization</button>
+            <button class="category-btn" data-category="transactions">Transactions</button>
+            <button class="category-btn" data-category="concurrency">Concurrency</button>
+            <button class="category-btn" data-category="ermodel">ER Model</button>
+            <button class="category-btn" data-category="sql">SQL & RA</button>
+            <button class="category-btn" data-category="file">File Organization</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/3KWIQXWYIcM" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Database Management System 01 | Introduction of DBMS</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Introduction</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to Database Management Systems, its components, advantages over file systems, and database architecture.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Database Management System | GATE 2024 Series</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 1, title: "Database Management System 01 | Introduction of DBMS", category: "intro", youtubeId: "3KWIQXWYIcM", description: "Introduction to Database Management Systems, its components, advantages over file systems, and database architecture.", watched: false },
+            { id: 2, title: "Database Management System 02 | Key Concepts & Finding Number of Candidate keys", category: "keys", youtubeId: "kP1E3AoLnIw", description: "Understanding database keys, candidate keys, super keys, and methods to find the number of candidate keys in a relation.", watched: false },
+            { id: 3, title: "Database Management System 03 | Key Concepts & Finding Candidate keys 02", category: "keys", youtubeId: "wdppN5QEWI4", description: "Advanced concepts in candidate keys, prime attributes, and solving complex problems related to key identification.", watched: false },
+            { id: 4, title: "Database Management System 04 | Key Concepts & Finding Candidate Keys 03", category: "keys", youtubeId: "rHvkwEUVCoc", description: "Further exploration of candidate keys with complex examples and step-by-step problem-solving approaches.", watched: false },
+            { id: 5, title: "DBMS 05 - Key Concepts & Finding Number of Candidate keys 04", category: "keys", youtubeId: "_OeAE3MtHzo", description: "Advanced techniques for finding candidate keys in complex database schemas with multiple attributes.", watched: false },
+            { id: 6, title: "DBMS 06 | Key Concepts & Finding Number of Candidate keys 05", category: "keys", youtubeId: "lUC-7VfeQ5c", description: "Final part of candidate key series with challenging problems and comprehensive solution methods.", watched: false },
+            { id: 7, title: "DBMS 07 | Membership set & Equality between FD Sets", category: "keys", youtubeId: "Yf9RVP0faLo", description: "Understanding functional dependencies, membership sets, and equivalence between different FD sets.", watched: false },
+            { id: 8, title: "Database Management System 08 | Minimal Cover", category: "keys", youtubeId: "-iRIIXx49rw", description: "Concept of minimal cover or canonical cover for functional dependencies and its importance in database design.", watched: false },
+            { id: 9, title: "Database Management System 09 | Properties of Decomposition", category: "normalization", youtubeId: "NzvDssZkqu4", description: "Understanding decomposition properties - lossless join and dependency preservation in database normalization.", watched: false },
+            { id: 10, title: "Database Management System 10 | Properties of Decomposition - 2", category: "normalization", youtubeId: "BjpZXWhbkgs", description: "Advanced concepts in decomposition, testing for lossless join, and dependency preservation algorithms.", watched: false },
+            { id: 11, title: "Database Management System 11 | Normal Form- 1", category: "normalization", youtubeId: "dq4NZkhtHkM", description: "Introduction to normalization, First Normal Form (1NF), and its importance in eliminating data redundancy.", watched: false },
+            { id: 12, title: "Database Management System 12 | Normal Form- 2", category: "normalization", youtubeId: "hUU3u_NTaLo", description: "Understanding Second Normal Form (2NF), partial dependencies, and conversion from 1NF to 2NF.", watched: false },
+            { id: 13, title: "Database Management System 13 | Normal Form- 3", category: "normalization", youtubeId: "BT2Rjj8Fe5o", description: "Third Normal Form (3NF), transitive dependencies, and the process of normalization up to 3NF.", watched: false },
+            { id: 14, title: "Database Management System 14 | Normal Form- 4", category: "normalization", youtubeId: "xqL6WQQDe-A", description: "Boyce-Codd Normal Form (BCNF), its conditions, and comparison with 3NF in database design.", watched: false },
+            { id: 15, title: "Database Management System 15 | Transaction Concept", category: "transactions", youtubeId: "6aLTcMdRF8g", description: "Introduction to database transactions, ACID properties, and transaction states in DBMS.", watched: false },
+            { id: 16, title: "Database Management System 16 | Serializable Schedule(Conflict & View ) - 1", category: "concurrency", youtubeId: "yyc0981SEn0", description: "Understanding serializable schedules, conflict serializability, and view serializability in concurrency control.", watched: false },
+            { id: 17, title: "Database Management System 17 | Serializable Schedule(Conflict & View ) - 2", category: "concurrency", youtubeId: "88L5yUlbn9k", description: "Advanced concepts in serializability, precedence graphs, and testing for conflict and view serializability.", watched: false },
+            { id: 18, title: "Database Management System 18 | Problem Due to Concurrent Execution", category: "concurrency", youtubeId: "UV0mGz8m_vI", description: "Problems in concurrent transaction execution - dirty read, lost update, and incorrect summary.", watched: false },
+            { id: 19, title: "Database Management System 19 | Finding Number of Conflict Serializable Schedule", category: "concurrency", youtubeId: "6iSoj9KuIeE", description: "Methods to calculate the number of conflict serializable schedules for given transactions.", watched: false },
+            { id: 20, title: "Database Management System 20 | Recoverable Schedule", category: "concurrency", youtubeId: "NMnsnsqKH8c", description: "Understanding recoverable schedules, cascading rollbacks, and cascadeless schedules in transaction management.", watched: false },
+            { id: 21, title: "Database Management System 21 | Lock Based Protocol 01", category: "concurrency", youtubeId: "OkpGNeymO7k", description: "Introduction to lock-based protocols, shared and exclusive locks for concurrency control.", watched: false },
+            { id: 22, title: "Database Management System 22 | Lock Based Protocol 02", category: "concurrency", youtubeId: "mGNAachTQCY", description: "Two-phase locking protocol, strict two-phase locking, and their implementation in database systems.", watched: false },
+            { id: 23, title: "Database Management System 23 | ER Model Concept", category: "ermodel", youtubeId: "VyBh92ZaUvs", description: "Introduction to Entity-Relationship model, entities, attributes, and relationships in database design.", watched: false },
+            { id: 24, title: "Database Management System | ER Model Concept & Conversion of ER Model to RDBMS", category: "ermodel", youtubeId: "KGv8Zyzo7HU", description: "Converting ER diagrams to relational database schemas and mapping relationships to tables.", watched: false },
+            { id: 25, title: "Database Management System 25 | Foreign Key Concept", category: "ermodel", youtubeId: "RI0k_ZcC24Q", description: "Understanding foreign keys, referential integrity, and their role in maintaining database consistency.", watched: false },
+            { id: 26, title: "Database Management System 26 | Relational Algebra- 1", category: "sql", youtubeId: "Nzh-KOpxUvs", description: "Introduction to relational algebra, selection, projection, and set operations in database query processing.", watched: false },
+            { id: 27, title: "Database Management System 27 | Relational Algebra- 2", category: "sql", youtubeId: "FBNU4-LKxYY", description: "Advanced relational algebra operations - join, division, and complex query formulation.", watched: false },
+            { id: 28, title: "Database Management System 28 | Structured Query Language (SQL) - 01", category: "sql", youtubeId: "QsyyQBjkyoM", description: "Introduction to SQL, DDL commands, creating databases and tables, and basic SQL syntax.", watched: false },
+            { id: 29, title: "Database Management System 29 | Structured Query Language(SQL) - 02", category: "sql", youtubeId: "Ei2Vst5YFmk", description: "DML commands, SELECT queries, WHERE clause, and basic data manipulation operations in SQL.", watched: false },
+            { id: 30, title: "Database Management System 30 | File Org & Indexing", category: "file", youtubeId: "TkYLNY-vfS0", description: "Introduction to file organization methods, indexing, and their importance in database performance.", watched: false },
+            { id: 31, title: "Database Management System 31 | File Org & Indexing - 02", category: "file", youtubeId: "8XDNckIcZ0A", description: "Advanced file organization techniques, B-trees, and multi-level indexing structures.", watched: false },
+            { id: 32, title: "Database Management System 32 | File Org & Indexing - 03", category: "file", youtubeId: "nokVaQOeSrk", description: "B+ trees, their structure, operations, and advantages in database indexing.", watched: false },
+            { id: 33, title: "Database Management System 33 | File Org & Indexing - 04", category: "file", youtubeId: "xyEPXolV7Wo", description: "Hashing techniques, static and dynamic hashing, and their application in database systems.", watched: false }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

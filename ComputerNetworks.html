@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Networks Video Library | GATE Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #3498db, #2980b9, #1abc9c);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-network-wired"></i> Computer Networks Video Library</h1>
+            <p class="subtitle">GATE Free Crash Course covering IP Addressing, Subnetting, Error Detection, Protocols, TCP/IP, and more</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for networking topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="addressing">IP Addressing</button>
+            <button class="category-btn" data-category="subnetting">Subnetting</button>
+            <button class="category-btn" data-category="error">Error Detection</button>
+            <button class="category-btn" data-category="protocols">Protocols</button>
+            <button class="category-btn" data-category="tcp">TCP/IP</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/pGWxdTJPjKE" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Computer Networks 01 | Introduction to IP Addressing</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> IP Addressing</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to IP addressing, understanding IPv4 structure, network and host portions, and the basics of IP address allocation.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Computer Networks Video Library | GATE Free Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 1, title: "Computer Networks 01 | Introduction to IP Addressing", category: "addressing", youtubeId: "pGWxdTJPjKE", description: "Introduction to IP addressing, understanding IPv4 structure, network and host portions, and the basics of IP address allocation.", watched: false },
+            { id: 2, title: "Computer Networks 02 | Classful Addressing", category: "addressing", youtubeId: "8dUh3oOhtqs", description: "Understanding classful addressing in IP networks, class A, B, C, D, and E addresses, and their ranges.", watched: false },
+            { id: 3, title: "Computer Networks 03 | Types of Communication", category: "protocols", youtubeId: "XgLfxuRFYzg", description: "Exploring different types of communication in computer networks - unicast, multicast, and broadcast.", watched: false },
+            { id: 4, title: "Computer Networks 04 | Introduction to Subnetting", category: "subnetting", youtubeId: "_NbT1VuD5n8", description: "Introduction to subnetting, understanding subnet masks, and how to divide networks into smaller subnets.", watched: false },
+            { id: 5, title: "Computer Networks 05 | Problem Solving on Subnetting (Part-1)", category: "subnetting", youtubeId: "Rg7rm7wC0rc", description: "Solving subnetting problems, calculating subnets, hosts, and understanding subnet masks in practice.", watched: false },
+            { id: 6, title: "Computer Networks 06 | Problem Solving on Subnetting Part-2", category: "subnetting", youtubeId: "aG3QAOpNaAk", description: "Continuing with subnetting problem solving, advanced scenarios and practical applications.", watched: false },
+            { id: 7, title: "Computer Networks 07 | Problem Solving on Subnetting part-3", category: "subnetting", youtubeId: "9CpVLcg4Nj0", description: "Advanced subnetting problems, VLSM (Variable Length Subnet Masking) concepts and applications.", watched: false },
+            { id: 8, title: "Computer Networks 08 | Classless Addressing", category: "addressing", youtubeId: "2tPNbZQNNu8", description: "Understanding classless addressing, CIDR notation, and advantages over classful addressing.", watched: false },
+            { id: 9, title: "Computer Networks 09 | Classless Addressing (Part 2)", category: "addressing", youtubeId: "eG-BQAhWHzQ", description: "Advanced concepts in classless addressing, subnet calculations, and practical implementations.", watched: false },
+            { id: 10, title: "Computer Networks 10 | Supernetting", category: "addressing", youtubeId: "-xg_VN0XLcE", description: "Introduction to supernetting, route aggregation, and combining multiple networks into larger ones.", watched: false },
+            { id: 11, title: "Supernetting in Classfull Addressing", category: "addressing", youtubeId: "BlYr4YvDdyU", description: "Understanding supernetting in classful addressing environments and its practical applications.", watched: false },
+            { id: 12, title: "Computer Networks 11 | Types of Error & Hamming Distance", category: "error", youtubeId: "0wrrohWULrw", description: "Exploring types of errors in data transmission, single-bit and burst errors, and understanding Hamming distance.", watched: false },
+            { id: 13, title: "Computer Networks 12 | CRC & Checksum", category: "error", youtubeId: "Bc-AhLMvlxg", description: "Understanding Cyclic Redundancy Check (CRC) and checksum methods for error detection in networks.", watched: false },
+            { id: 14, title: "Computer Networks 13 | Hamming Code", category: "error", youtubeId: "5x556v5AYsM", description: "Understanding Hamming code for error detection and correction, encoding and decoding processes.", watched: false },
+            { id: 15, title: "Computer Networks 14 | Delay in Computer Network", category: "protocols", youtubeId: "vXyNFzq7Ixc", description: "Exploring different types of delays in computer networks - transmission, propagation, processing, and queuing delays.", watched: false },
+            { id: 16, title: "Computer Networks 15 | Stop & Wait Protocol", category: "protocols", youtubeId: "0fADxOjC3ko", description: "Understanding Stop and Wait protocol for reliable data transmission, its working and limitations.", watched: false },
+            { id: 17, title: "Computer Networks 16 | Go Back-N Protocol", category: "protocols", youtubeId: "xLAAtHaHCwg", description: "Introduction to Go Back-N protocol, sliding window protocol, and its advantages over Stop and Wait.", watched: false },
+            { id: 18, title: "Computer Networks 17 | Go Back-N Protocol - 02", category: "protocols", youtubeId: "HK3wIp_v_A0", description: "Pipeline hazards, data dependencies, and techniques for hazard detection and resolution.", watched: false },
+            { id: 19, title: "Computer Networks 18 | Selective Repeat Protocol", category: "protocols", youtubeId: "EctRj5FuZD0", description: "Understanding Selective Repeat protocol, its advantages over Go Back-N, and implementation details.", watched: false },
+            { id: 20, title: "Computer Networks 19 | IPv4 Header", category: "tcp", youtubeId: "fb5qtrC65OI", description: "Detailed examination of IPv4 header structure, fields, and their functions in packet transmission.", watched: false },
+            { id: 21, title: "Computer Networks 20 | IPv4 Header (Part 2)", category: "tcp", youtubeId: "9Fn06s7mJ3Y", description: "Continuing with IPv4 header analysis, advanced fields, and practical implications in networking.", watched: false },
+            { id: 22, title: "Computer Networks 21 | Fragmentation in IPv4", category: "tcp", youtubeId: "ODYDwokgPMM", description: "Understanding fragmentation in IPv4, MTU, and how large packets are divided for transmission.", watched: false },
+            { id: 23, title: "Computer Networks 22 | TCP Header & Wrap Around Time", category: "tcp", youtubeId: "jLdytO8yqiE", description: "Examining TCP header structure, sequence numbers, and understanding wrap around time concept.", watched: false },
+            { id: 24, title: "Computer Networks 23 | Congestion Control in TCP", category: "tcp", youtubeId: "uFR4WU86nuQ", description: "Understanding congestion control mechanisms in TCP, slow start, congestion avoidance algorithms.", watched: false },
+            { id: 25, title: "Computer Network 24 | Congestion Control in TCP Part-2", category: "tcp", youtubeId: "cvRkUCVdLSc", description: "Advanced congestion control techniques in TCP, fast retransmit, and fast recovery mechanisms.", watched: false },
+            { id: 26, title: "Computer Network 25 | UDP", category: "tcp", youtubeId: "K2hSeMMwXtU", description: "Understanding User Datagram Protocol (UDP), its header structure, and comparison with TCP.", watched: false },
+            { id: 27, title: "Computer Network 26 | TCP Vs UDP", category: "tcp", youtubeId: "hCXdl_DszgI", description: "Comprehensive comparison between TCP and UDP protocols, their differences, and use cases.", watched: false }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

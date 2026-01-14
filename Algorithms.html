@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Video Library | GATE Free Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific gradient */
+        body {
+            background: linear-gradient(135deg, #e74c3c, #c0392b, #e67e22);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-project-diagram"></i> Algorithms Video Library</h1>
+            <p class="subtitle">GATE Free Crash Course covering Algorithm Analysis, Design Techniques, Divide & Conquer, Greedy Methods, Dynamic Programming, and Graph Algorithms</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for specific algorithms topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="intro">Introduction</button>
+            <button class="category-btn" data-category="complexity">Complexity Analysis</button>
+            <button class="category-btn" data-category="divide">Divide & Conquer</button>
+            <button class="category-btn" data-category="greedy">Greedy Algorithms</button>
+            <button class="category-btn" data-category="dp">Dynamic Programming</button>
+            <button class="category-btn" data-category="graph">Graph Algorithms</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/Z5wuGWZR9d0" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Algorithms 01 | Introduction to Algorithm</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Introduction</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to algorithms, their properties, and importance in computer science. Understanding algorithm design and analysis.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList">
+                    <!-- Video list will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Algorithms Video Library | GATE Free Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Video data for Algorithms
+        const videos = [
+            {
+                id: 1,
+                title: "Algorithms 01 | Introduction to Algorithm",
+                category: "intro",
+                youtubeId: "Z5wuGWZR9d0",
+                description: "Introduction to algorithms, their properties, and importance in computer science. Understanding algorithm design and analysis.",
+                watched: false
+            },
+            {
+                id: 2,
+                title: "Algorithms 02 | Time and Space Complexities - Asymptotic Notation",
+                category: "complexity",
+                youtubeId: "LsXuY_a2giw",
+                description: "Understanding time and space complexity, Big O notation, and asymptotic analysis of algorithms.",
+                watched: false
+            },
+            {
+                id: 3,
+                title: "Algorithms 03 | Divide and Conquer- Max-Min Mergesort",
+                category: "divide",
+                youtubeId: "tbss_rV6L3Q",
+                description: "Exploring divide and conquer strategy with examples like finding max-min elements and merge sort algorithm.",
+                watched: false
+            },
+            {
+                id: 4,
+                title: "Algorithms 04 | Matrix Multiplication",
+                category: "divide",
+                youtubeId: "FmPgnO0aUxc",
+                description: "Understanding matrix multiplication algorithms including Strassen's algorithm for efficient multiplication.",
+                watched: false
+            },
+            {
+                id: 5,
+                title: "Algorithms 05 | Greedy Method: Knapsack problem",
+                category: "greedy",
+                youtubeId: "UkKOuIhywVU",
+                description: "Introduction to greedy algorithms with the knapsack problem as a primary example.",
+                watched: false
+            },
+            {
+                id: 6,
+                title: "Algorithms 06 | Greedy Method - Single Source Shortest Paths Problem",
+                category: "greedy",
+                youtubeId: "EgAVPr3A7Aw",
+                description: "Applying greedy approach to solve single source shortest path problems like Dijkstra's algorithm.",
+                watched: false
+            },
+            {
+                id: 7,
+                title: "Algorithms 07 | Dynamic Programming General Method, MSG",
+                category: "dp",
+                youtubeId: "Lc6w-RRla-c",
+                description: "Introduction to dynamic programming, its principles, and solving problems using memoization.",
+                watched: false
+            },
+            {
+                id: 8,
+                title: "Algorithms 08 | Dynamic Programming - LCS",
+                category: "dp",
+                youtubeId: "3ag_pPc_DN4",
+                description: "Solving Longest Common Subsequence (LCS) problem using dynamic programming approach.",
+                watched: false
+            },
+            {
+                id: 9,
+                title: "Algorithms 09 | Graph Techniques",
+                category: "graph",
+                youtubeId: "EvtpfPqousk",
+                description: "Exploring graph algorithms including traversal techniques and their applications.",
+                watched: false
+            },
+            {
+                id: 10,
+                title: "Algorithms 10 | Heap Algorithms",
+                category: "graph",
+                youtubeId: "e9Y5inAl20c",
+                description: "Understanding heap data structure and algorithms like heap sort and priority queues.",
+                watched: false
+            }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

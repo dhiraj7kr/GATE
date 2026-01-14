@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Mathematics Video Library | GATE Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e74c3c, #c0392b, #fdbb2d);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-square-root-alt"></i> Discrete Mathematics Video Library</h1>
+            <p class="subtitle">A comprehensive collection of Discrete Mathematics lectures covering Graph Theory, Logic, Set Theory, and Combinatorics for GATE preparation</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for discrete mathematics topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="graph">Graph Theory</button>
+            <button class="category-btn" data-category="logic">Logic</button>
+            <button class="category-btn" data-category="set">Set Theory</button>
+            <button class="category-btn" data-category="combinatorics">Combinatorics</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/YZmc5sk4kHo" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Graph Theory - Basics of Graphs</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Graph Theory</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to graph theory, covering basic concepts, terminology, and types of graphs.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Discrete Mathematics Video Library | Educational Resource</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 1, title: "Graph Theory - Basics of Graphs", category: "graph", youtubeId: "YZmc5sk4kHo", description: "Introduction to graph theory, covering basic concepts, terminology, and types of graphs." },
+            { id: 2, title: "Graph Theory - Types of Graphs", category: "graph", youtubeId: "Vv77e5j1apk", description: "Exploring different types of graphs including directed, undirected, weighted, and bipartite graphs." },
+            { id: 3, title: "Graph Theory - Connectivity in Graphs Part 1", category: "graph", youtubeId: "d-P5F-ItMKc", description: "Understanding connectivity in graphs, paths, cycles, and connected components." },
+            { id: 4, title: "Graph Theory - Connectivity in Graphs Part 2", category: "graph", youtubeId: "vc_VBPPYB6c", description: "Advanced concepts in graph connectivity including cut vertices and bridges." },
+            { id: 5, title: "Graph Theory - Advance Topics in Graphs Part 1", category: "graph", youtubeId: "tlJxR-x-0YI", description: "Introduction to advanced graph theory topics including planar graphs and graph coloring." },
+            { id: 6, title: "Advance Topics in Graphs Part 2", category: "graph", youtubeId: "Q7KRfXx5jLQ", description: "Continuing with advanced graph theory concepts, covering Eulerian and Hamiltonian paths." },
+            { id: 7, title: "Logic - Propositional Logic", category: "logic", youtubeId: "7zjhic8uTR4", description: "Fundamentals of propositional logic, logical connectives, and truth tables." },
+            { id: 8, title: "Logic Inference Rule", category: "logic", youtubeId: "a5HbV3AKE9I", description: "Understanding logical inference rules and their application in logical reasoning." },
+            { id: 9, title: "Logic - Predicate Logic", category: "logic", youtubeId: "VA_5ho3BSyw", description: "Introduction to predicate logic, quantifiers, and their use in mathematical reasoning." },
+            { id: 10, title: "Logic - Quantifier Part 1", category: "logic", youtubeId: "fjgo2FEBJRY", description: "Detailed exploration of universal and existential quantifiers in predicate logic." },
+            { id: 11, title: "Logic - Quantifier Part 2", category: "logic", youtubeId: "Y5SFid7aons", description: "Advanced topics in quantifiers, nested quantifiers, and their applications." },
+            { id: 12, title: "Set Theory - Basics Of Set Theory", category: "set", youtubeId: "TfF9tK_xzKM", description: "Introduction to set theory, covering sets, subsets, and basic set operations." },
+            { id: 13, title: "Set Theory - Functions And Its Types", category: "set", youtubeId: "xSsoNHpWO5A", description: "Understanding functions, their properties, and different types of functions." },
+            { id: 14, title: "Set Theory - Relations Part 1", category: "set", youtubeId: "m7zRKQ8DKjE", description: "Introduction to relations, their properties, and representation of relations." },
+            { id: 15, title: "Set Theory - Relations Part 2", category: "set", youtubeId: "y3UugFZ7S4w", description: "Advanced topics in relations including equivalence relations and partial orders." },
+            { id: 16, title: "Set Theory - Group Theory", category: "set", youtubeId: "zKADDnLPgkA", description: "Introduction to group theory, covering groups, subgroups, and group properties." },
+            { id: 17, title: "Combinatorics - Basics of Counting", category: "combinatorics", youtubeId: "kEU18I-WTWI", description: "Fundamental counting principles, permutations, and combinations." },
+            { id: 18, title: "Combinatorics - Combination With Repetition", category: "combinatorics", youtubeId: "_8firmX85Ks", description: "Understanding combinations with repetition and their applications." },
+            { id: 19, title: "Combinatorics - Inclusion Exclusion / Derangement", category: "combinatorics", youtubeId: "e0JBSaQ86TA", description: "Principle of inclusion-exclusion and derangements in combinatorics." },
+            { id: 20, title: "Combinatorics - Pigeonhole Principle", category: "combinatorics", youtubeId: "DaMQjj1lBWo", description: "Understanding and applying the pigeonhole principle in combinatorial problems." },
+            { id: 21, title: "Combinatorics - Generating Function", category: "combinatorics", youtubeId: "ZEJGeQJ51hg", description: "Introduction to generating functions and their use in solving combinatorial problems." },
+            { id: 22, title: "Combinatorics - Recurrence Relation", category: "combinatorics", youtubeId: "KoamrAUDtPw", description: "Understanding recurrence relations and their solutions in combinatorics." }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

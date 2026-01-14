@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Video Library | GATE Free Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #27ae60, #2ecc71, #1d2b3a);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code"></i> C Programming Video Library</h1>
+            <p class="subtitle">GATE Free Crash Course covering C Programming fundamentals, data types, operators, control flow, functions, arrays, pointers, and more</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for C programming topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="intro">Introduction</button>
+            <button class="category-btn" data-category="datatypes">Data Types</button>
+            <button class="category-btn" data-category="operators">Operators</button>
+            <button class="category-btn" data-category="control">Control Flow</button>
+            <button class="category-btn" data-category="functions">Functions</button>
+            <button class="category-btn" data-category="arrays">Arrays & Pointers</button>
+            <button class="category-btn" data-category="advanced">Advanced Topics</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/hMLKVkJGV5Q" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">C Programming 01 | Introduction to C Programming (Part 1)</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Introduction</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to C programming language, its history, features, and basic structure of a C program.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 C Programming Video Library | GATE Free Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 1, title: "C Programming 01 | Introduction to C Programming (Part 1)", category: "intro", youtubeId: "hMLKVkJGV5Q", description: "Introduction to C programming language, its history, features, and basic structure of a C program.", watched: false },
+            { id: 2, title: "C Programming 02 | Data Types", category: "datatypes", youtubeId: "lqbntQ_svOs", description: "Understanding basic data types in C including integers, floats, characters, and their modifiers.", watched: false },
+            { id: 3, title: "C programming 03 | Data types - 02", category: "datatypes", youtubeId: "IWJECcYHFc8", description: "Advanced data types in C including derived data types, type conversion, and storage classes.", watched: false },
+            { id: 4, title: "C Programming 04 | Operators", category: "operators", youtubeId: "czx4neIVRGw", description: "Introduction to operators in C including arithmetic, relational, and logical operators.", watched: false },
+            { id: 5, title: "C Programming 05 | Operators -2", category: "operators", youtubeId: "cLyPzUbx3xo", description: "Understanding bitwise operators, assignment operators, and operator precedence in C.", watched: false },
+            { id: 6, title: "C Programming 06 | Operators - 3", category: "operators", youtubeId: "uy75shhPQOA", description: "Advanced operator concepts including conditional operator, comma operator, and sizeof operator.", watched: false },
+            { id: 7, title: "C programming 07 | Control Flow Statements -1", category: "control", youtubeId: "L1VWEjdwzto", description: "Understanding control flow statements in C including if, if-else, and nested if statements.", watched: false },
+            { id: 8, title: "C Programming 08 | Control Flow Statements - 2", category: "control", youtubeId: "1eBLfPLcPLo", description: "Exploring switch statements, break, and continue statements for control flow in C.", watched: false },
+            { id: 9, title: "C programming 09 | Control Flow Statements -3", category: "control", youtubeId: "2FzNccxPhV0", description: "Understanding loops in C including for, while, and do-while loops with examples.", watched: false },
+            { id: 10, title: "C Programming 10 | Function and Storage Classes", category: "functions", youtubeId: "jtiaEh6tLVI", description: "Introduction to functions in C, function declaration, definition, and storage classes.", watched: false },
+            { id: 11, title: "C Programming 11 | Recursion", category: "functions", youtubeId: "d00yBYccOcs", description: "Understanding recursion in C, recursive functions, and solving problems using recursion.", watched: false },
+            { id: 12, title: "C Programming 12 | Arrays and Pointers - 1", category: "arrays", youtubeId: "DXeDnmF0ONE", description: "Introduction to arrays in C, array declaration, initialization, and basic operations.", watched: false },
+            { id: 13, title: "C Programming 13 | Arrays and Pointers -2", category: "arrays", youtubeId: "EnH1q8i5FoI", description: "Understanding pointers in C, pointer arithmetic, and relationship between arrays and pointers.", watched: false },
+            { id: 14, title: "C Programming 14 | Dynamic Memory Allocation", category: "advanced", youtubeId: "eowTsqDql18", description: "Dynamic memory allocation in C using malloc, calloc, realloc, and free functions.", watched: false },
+            { id: 15, title: "C Programming 15 | Strings", category: "advanced", youtubeId: "fkD8vL8c9m4", description: "Working with strings in C, string functions, and character array manipulation.", watched: false },
+            { id: 16, title: "C Programming 16 | Structure and Union", category: "advanced", youtubeId: "SqZRBNnQlWA", description: "Understanding structures and unions in C, their declaration, and practical applications.", watched: false }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

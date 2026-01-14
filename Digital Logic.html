@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Logic | GATE 2025 Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a0dad, #8a2be2, #4b0082);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-circuit-board"></i> Digital Logic</h1>
+            <p class="subtitle">GATE 2025 Crash Course for CS, IT, EE, ECE covering Logic Gates, Boolean Algebra, K-Maps, Combinational & Sequential Circuits</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for digital logic topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="gates">Logic Gates</button>
+            <button class="category-btn" data-category="algebra">Boolean Algebra</button>
+            <button class="category-btn" data-category="kmap">K-Maps</button>
+            <button class="category-btn" data-category="combinational">Combinational Circuits</button>
+            <button class="category-btn" data-category="sequential">Sequential Circuits</button>
+            <button class="category-btn" data-category="counters">Counters</button>
+            <button class="category-btn" data-category="numbers">Number Systems</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/9_BmFERd1iY" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Digital Logic 02 | Logic Gate Part 2</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 2</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Logic Gates</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Advanced concepts in logic gates, universal gates, and implementation of various logic functions using basic gates.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Digital Logic | GATE 2025 Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            { id: 2, title: "Digital Logic 02 | Logic Gate Part 2", category: "gates", youtubeId: "9_BmFERd1iY", description: "Advanced concepts in logic gates, universal gates, and implementation of various logic functions using basic gates.", watched: false },
+            { id: 3, title: "Digital Logic 03 | Minimum number of NAND GATE/ NOR", category: "gates", youtubeId: "Eh7V78IP3UI", description: "Finding minimum number of NAND and NOR gates required to implement Boolean functions and logic circuits.", watched: false },
+            { id: 4, title: "Digital Logic 04 | Boolean Algebra In 2 Hours", category: "algebra", youtubeId: "66yvhgbKqUg", description: "Comprehensive coverage of Boolean algebra, laws, theorems, and simplification techniques for digital logic design.", watched: false },
+            { id: 5, title: "Digital Logic 05 | KMPA In 2 Hours", category: "kmap", youtubeId: "9KKz5Si8-PQ", description: "Detailed explanation of Karnaugh Maps (K-Maps), minimization techniques, and solving complex Boolean expressions.", watched: false },
+            { id: 6, title: "Digital Logic 06 | Combinational Circuit Comparator", category: "combinational", youtubeId: "59YKzgx9mWQ", description: "Understanding digital comparators, their design, working principle, and applications in combinational circuits.", watched: false },
+            { id: 7, title: "Digital Logic 07 | Multiplexer In 2 Hours", category: "combinational", youtubeId: "pJkV4P11Kqs", description: "Comprehensive study of multiplexers, their implementation, and applications in digital systems design.", watched: false },
+            { id: 8, title: "Digital Logic 08 | Combinational Circuit - Adder/Subtractor", category: "combinational", youtubeId: "MXSPnhb-61c", description: "Design and implementation of adders and subtractors in combinational circuits for arithmetic operations.", watched: false },
+            { id: 9, title: "Digital Logic 09 | Combinational Circuit - Encoder / Decoder", category: "combinational", youtubeId: "szb2tDcw9yc", description: "Understanding encoders and decoders, their working principles, and applications in digital systems.", watched: false },
+            { id: 10, title: "Digital Logic 10 | Combinational Circuit Miscellaneous", category: "combinational", youtubeId: "MObiUYkhf44", description: "Miscellaneous topics in combinational circuits including code converters and other special circuits.", watched: false },
+            { id: 11, title: "Digital Logic 11 | Sequential Circuit Latches And Flip Flops", category: "sequential", youtubeId: "-dK7t8di_10", description: "Introduction to sequential circuits, latches, flip-flops, and their characteristics in digital systems.", watched: false },
+            { id: 12, title: "Digital Logic 12 | Sequential Circuit Registers", category: "sequential", youtubeId: "8ohiYKgXT5E", description: "Understanding registers in sequential circuits, their types, and applications in data storage and transfer.", watched: false },
+            { id: 13, title: "Digital Logic 13 | Sequential Circuit Counter", category: "counters", youtubeId: "-aVi7uY30vQ", description: "Introduction to counters in sequential circuits, their classification, and design principles.", watched: false },
+            { id: 14, title: "Digital Logic 14 | Counter Circuit One Shot", category: "counters", youtubeId: "LlN56W0tIJs", description: "Comprehensive coverage of counter circuits, their design, and applications in sequential logic.", watched: false },
+            { id: 15, title: "Digital Logic 15 | Counter Circuit One Shot Part 2", category: "counters", youtubeId: "pxgOjU31mlM", description: "Advanced concepts in counter circuits, synchronous and asynchronous counters, and their implementation.", watched: false },
+            { id: 16, title: "Digital Logic 16 | Question Based On Counter", category: "counters", youtubeId: "1l3GeDFVJH0", description: "Solving various problems and questions based on counter circuits for GATE examination preparation.", watched: false },
+            { id: 17, title: "Digital Logic 17 | Number System", category: "numbers", youtubeId: "j814rKgGZ7Y", description: "Understanding number systems - binary, octal, hexadecimal, and their conversions in digital logic.", watched: false },
+            { id: 18, title: "Digital Logic 18 | Miscellaneous", category: "combinational", youtubeId: "iOVADMUngew", description: "Miscellaneous topics in digital logic covering various concepts and problem-solving techniques.", watched: false }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

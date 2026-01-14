@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Organization & Architecture | GATE 2024 Crash Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6, #2c3e50);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="./HomePage.html" class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>GATE Courses</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="./HomePage.html" class="home-btn"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-microchip"></i> Computer Organization & Architecture</h1>
+            <p class="subtitle">GATE 2024 Crash Course covering CPU Design, Instruction Sets, Pipelining, Memory Hierarchy, and I/O Systems</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for COA topics...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Videos</button>
+            <button class="category-btn" data-category="intro">Introduction</button>
+            <button class="category-btn" data-category="instructions">Instructions</button>
+            <button class="category-btn" data-category="arithmetic">Arithmetic</button>
+            <button class="category-btn" data-category="pipelining">Pipelining</button>
+            <button class="category-btn" data-category="memory">Memory</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="video-player-container">
+                <div class="video-player">
+                    <iframe id="mainVideo" src="https://www.youtube.com/embed/zFphcpXP2zA" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h2 class="video-title" id="mainVideoTitle">Computer Organization and Architecture 01 | Introduction of COA</h2>
+                    <div class="video-meta">
+                        <span id="mainVideoLecture"><i class="fas fa-book-open"></i> Lecture 1</span>
+                        <span id="mainVideoCategory"><i class="fas fa-folder"></i> Introduction</span>
+                    </div>
+                    <p class="video-desc" id="mainVideoDesc">Introduction to Computer Organization and Architecture, basic concepts, and overview of the course structure for GATE 2024 preparation.</p>
+                </div>
+            </div>
+            
+            <div class="video-list-container">
+                <h3 class="video-list-title">All Lectures</h3>
+                <div class="video-list" id="videoList"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Computer Organization & Architecture | GATE 2024 Crash Course</p>
+            <div class="footer-links">
+                <a href="./HomePage.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const videos = [
+            {
+                id: 1,
+                title: "Computer Organization and Architecture 01 | Introduction of COA",
+                category: "intro",
+                youtubeId: "zFphcpXP2zA",
+                description: "Introduction to Computer Organization and Architecture, basic concepts, and overview of the course structure for GATE 2024 preparation.",
+                watched: false
+            },
+            {
+                id: 2,
+                title: "GATE 2024 | Computer Organization And Architecture (COA) | Syllabus Discussion, Weightage, Strategy",
+                category: "intro",
+                youtubeId: "eq58CzhH-fc",
+                description: "Detailed discussion of COA syllabus for GATE 2024, topic weightage, and preparation strategy for maximum marks.",
+                watched: false
+            },
+            {
+                id: 3,
+                title: "Computer Organization and Architecture 02 | Machine Instruction & Addressing Modes-1",
+                category: "instructions",
+                youtubeId: "qjxOq_kKfCY",
+                description: "Understanding machine instructions, instruction formats, and introduction to addressing modes in computer architecture.",
+                watched: false
+            },
+            {
+                id: 4,
+                title: "Computer Org. and Architecture 03 | Machine Instruction & Addressing Modes -2",
+                category: "instructions",
+                youtubeId: "sfOMaBfb-Sw",
+                description: "Advanced concepts in addressing modes, instruction types, and their implementation in computer systems.",
+                watched: false
+            },
+            {
+                id: 5,
+                title: "Computer Organization & Architecture (COA) 04 | Floating Point Representation",
+                category: "arithmetic",
+                youtubeId: "ZhAZeaHb3EU",
+                description: "Understanding floating point representation, IEEE 754 standard, and arithmetic operations with floating point numbers.",
+                watched: false
+            },
+            {
+                id: 6,
+                title: "Computer Organization and Architecture 05 | ALU & Control Unit (Part - 01)",
+                category: "arithmetic",
+                youtubeId: "2pdneEfRnT4",
+                description: "Introduction to Arithmetic Logic Unit (ALU) and Control Unit, their functions, and design principles in CPU architecture.",
+                watched: false
+            },
+            {
+                id: 7,
+                title: "Computer Organization and Architecture 06 | ALU & Control Unit (Part - 02)",
+                category: "arithmetic",
+                youtubeId: "3VRC7nol_Ok",
+                description: "Advanced concepts in ALU design, control signals, and implementation of complex operations in computer systems.",
+                watched: false
+            },
+            {
+                id: 8,
+                title: "Computer Organization and Architecture 07 | Instruction Pipelining Part -01",
+                category: "pipelining",
+                youtubeId: "wLmd8pF3tFQ",
+                description: "Introduction to instruction pipelining, pipeline stages, and performance improvement through parallel instruction execution.",
+                watched: false
+            },
+            {
+                id: 9,
+                title: "Computer Organization and Architecture 08 | Instruction Pipelining Part - 02",
+                category: "pipelining",
+                youtubeId: "1rNWjNI0kVg",
+                description: "Pipeline hazards, data dependencies, and techniques for hazard detection and resolution in pipelined processors.",
+                watched: false
+            },
+            {
+                id: 10,
+                title: "Computer Organization And Architecture 09 | Instruction Pipelining Part - 03",
+                category: "pipelining",
+                youtubeId: "kuWdYrEOH0o",
+                description: "Advanced pipelining concepts, branch prediction, and optimizing pipeline performance in modern processors.",
+                watched: false
+            },
+            {
+                id: 11,
+                title: "Computer Organization & Architecture 10 | Cache Memory Part - 01",
+                category: "memory",
+                youtubeId: "Io8KrcvS8Bw",
+                description: "Introduction to cache memory, memory hierarchy, cache mapping techniques, and cache performance metrics.",
+                watched: false
+            },
+            {
+                id: 12,
+                title: "Computer Organization & Architecture 11 | Cache Memory Part - 02",
+                category: "memory",
+                youtubeId: "IHMwqMNUuns",
+                description: "Cache organization, replacement policies, write policies, and advanced cache optimization techniques.",
+                watched: false
+            },
+            {
+                id: 13,
+                title: "Computer Organization & Architecture 12 | Cache Memory Part - 03",
+                category: "memory",
+                youtubeId: "BH_uK02ASk4",
+                description: "Multi-level caches, cache coherence protocols, and memory consistency models in multiprocessor systems.",
+                watched: false
+            },
+            {
+                id: 14,
+                title: "COA 13 | Secondary Memory And IO Interface",
+                category: "memory",
+                youtubeId: "jCxz896S4Vw",
+                description: "Understanding secondary storage devices, I/O interfaces, and data transfer mechanisms between memory and peripheral devices.",
+                watched: false
+            }
+        ];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
